@@ -1,0 +1,7 @@
+AIMDB Colors
+
+Light Blue - 669dff
+
+Dark Blue - 001f54
+
+White - f0f8ff

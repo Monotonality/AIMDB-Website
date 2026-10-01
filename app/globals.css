@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/*
+ * AIMDB token layer — lab measurement log world.
+ *
+ * Brand palette is fixed by AIMDB Assets/AIMDB Colors.txt.
+ * Measured WCAG 2.2 contrast against --sheet (#F0F8FF):
+ *   #001F54  14.79:1  AAA
+ *   #0B2E6F  11.98:1  AAA
+ *   #15407F   9.45:1  AAA
+ *   #1D5390   7.27:1  AAA
+ *   #2464A3   5.71:1  AA
+ *   #669DFF   2.50:1  NON-TEXT ONLY
+ *
+ * #669DFF is accent ink. It is never a text color on --sheet,
+ * never a text-on-light button label. Only ink-950..ink-600 carry text.
+ */
+
+:root {
+  --sheet: #f0f8ff;
+}
+
+@theme inline {
+  --color-sheet: var(--sheet);
+
+  /* ink ramp — navy, text-safe steps */
+  --color-ink-950: #001f54;
+  --color-ink-900: #0b2e6f;
+  --color-ink-800: #15407f;
+  --color-ink-700: #1d5390;
+  --color-ink-600: #2464a3;
+
+  /* accent — non-text only */
+  --color-accent: #669dff;
+
+  /* rules: hairlines dividing every band */
+  --color-rule: #b9d6f5;
+  --color-rule-strong: #7fb2e8;
+
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-azeret), ui-monospace, monospace;
+
+  --radius-sheet: 2px;
+}
+
+body {
+  background: var(--sheet);
+  color: var(--color-ink-950);
+  font-family: var(--font-sans);
+  font-feature-settings: "tnum" 1;
+}
+
+/*
+ * Logo mark — pure vector, no baked background, no raster.
+ * Static: no motion, no scan bar. Just the disc stack.
+ */
+
+.logo-stack path {
+  fill: var(--color-ink-950);
+}
+
+.logo-stack ellipse {
+  fill: var(--color-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

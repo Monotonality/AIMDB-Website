@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 442.801 260.467">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #001f54;
+      }
+
+      .cls-2 {
+        font-family: CascadiaCode-Regular, 'Cascadia Code';
+        font-size: 36px;
+        font-variation-settings: 'wght' 400;
+      }
+
+      .cls-3 {
+        fill: #669dff;
+        stroke: #f0f8ff;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1" data-name="Layer 1">
+    <path class="cls-1" d="M222.864,187.967v27c0,24.85-42.31,45-94.5,45s-94.5-20.15-94.5-45v-27c0-24.85,42.31-45,94.5-45s94.5,20.15,94.5,45Z"/>
+    <ellipse class="cls-3" cx="128.364" cy="187.967" rx="94.5" ry="45"/>
+    <path class="cls-1" d="M222.864,133.967v27c0,24.85-42.31,45-94.5,45s-94.5-20.15-94.5-45v-27c0-24.85,42.31-45,94.5-45s94.5,20.15,94.5,45Z"/>
+    <ellipse class="cls-3" cx="128.364" cy="133.967" rx="94.5" ry="45"/>
+    <path class="cls-1" d="M222.864,79.967v27c0,24.85-42.31,45-94.5,45s-94.5-20.15-94.5-45v-27c0-24.85,42.31-45,94.5-45s94.5,20.15,94.5,45Z"/>
+    <ellipse class="cls-3" cx="128.364" cy="79.967" rx="94.5" ry="45"/>
+  </g>
+  <g id="Layer_5" data-name="Layer 5">
+    <text class="cls-2" transform="translate(231.864 93.467)"><tspan x="0" y="0">AI</tspan><tspan x="0" y="43.2">In-memory </tspan><tspan x="0" y="86.4">Database</tspan><tspan x="0" y="129.6">Club </tspan></text>
+  </g>
+</svg>
