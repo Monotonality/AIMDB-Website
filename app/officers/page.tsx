@@ -24,7 +24,8 @@ const PRESIDENT: Person = {
   role: "Interim President",
   image: "/officers/adam.webp",
   alt: "Portrait of Adam Torres",
-  detail: "B.S. Business Analytics & AI candidate",
+  detail:
+    "B.S. Business Analytics & AI candidate. Applied AI Researcher at Actriant, developing novel applications of NLP in Rapid Serial Visual Presentation. Executive Director, Applied Artificial Intelligence Labs at UTD.",
   links: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/adam-venegas-torres/" },
     { label: "Website", href: "https://www.gardenofadam.com/" },

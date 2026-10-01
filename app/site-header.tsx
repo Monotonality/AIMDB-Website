@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "./logo";
+import { getAuthUser } from "@/lib/auth";
 
 const NAV = [
   { href: "/about", label: "About" },
@@ -8,7 +9,9 @@ const NAV = [
   { href: "/contact", label: "Contact" },
 ];
 
-export default function SiteHeader() {
+export default async function SiteHeader() {
+  const user = await getAuthUser();
+
   return (
     <header className="border-b border-rule">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-6 py-4">
@@ -32,12 +35,21 @@ export default function SiteHeader() {
               </li>
             ))}
           </ul>
-          <Link
-            href="/apply"
-            className="inline-flex min-h-11 shrink-0 items-center border border-ink-950 px-4 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-950 transition-colors hover:bg-ink-950 hover:text-sheet focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-          >
-            Apply
-          </Link>
+          {user ? (
+            <Link
+              href="/profile"
+              className="inline-flex min-h-11 shrink-0 items-center border border-ink-950 px-4 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-950 transition-colors hover:bg-ink-950 hover:text-sheet focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+            >
+              Account
+            </Link>
+          ) : (
+            <Link
+              href="/login"
+              className="inline-flex min-h-11 shrink-0 items-center border border-ink-950 px-4 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-950 transition-colors hover:bg-ink-950 hover:text-sheet focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+            >
+              Log in
+            </Link>
+          )}
         </nav>
       </div>
     </header>

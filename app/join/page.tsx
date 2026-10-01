@@ -6,31 +6,50 @@ import SiteHeader from "../site-header";
 export const metadata: Metadata = {
   title: "Joining | AIMDB",
   description:
-    "How joining AIMDB works: what the application asks for, the statuses your submission moves through, and who reviews it.",
+    "How joining AIMDB works: create a .edu account, then complete the application to become a member.",
 };
 
 const STEPS = [
   {
+    state: "account",
+    title: "Create an account first",
+    body: "Before you can apply, register with your .edu email, your name, academic year, major, and expected graduation. That gives you an account. It does not make you a member.",
+  },
+  {
     state: "draft",
-    title: "Start your application",
-    body: "Your application saves as you go, so you can finish it later instead of losing work. Nothing is sent for review until you submit.",
+    title: "Fill in the membership form",
+    body: "Pay the $15 lifetime fee by Zelle, then add the transaction ID to the form. You can save a draft and finish later. Nothing counts as complete until you submit.",
   },
   {
-    state: "submitted / awaiting review",
-    title: "Club administration reviews it",
-    body: "Once submitted, your application enters review. You can see that it is awaiting review, so you are never left guessing where it stands.",
+    state: "submitted",
+    title: "We verify your payment",
+    body: "An officer matches your transaction ID against the payments received. Your registration is not processed until the payment arrives.",
   },
   {
-    state: "accepted / denied",
-    title: "You get a decision",
-    body: "You see the outcome. Acceptance is what makes you an active member of the club.",
+    state: "member",
+    title: "You become a member",
+    body: "Once your payment is verified, an officer accepts your application, your account is marked as a member, and you receive a confirmation email. Microsoft Teams is where the club talks from then on.",
   },
 ];
 
 const ASKS = [
-  "Contact information",
-  "Academic details: year, expected graduation, major or track",
-  "Technical interests",
+  {
+    stage: "when you create an account",
+    items: [
+      "A .edu email and a password",
+      "First and last name",
+      "Academic year, major, and expected graduation semester",
+    ],
+  },
+  {
+    stage: "in the membership form",
+    items: [
+      "Personal email and phone number",
+      "Current degree level",
+      "The Zelle transaction ID for the $15 lifetime fee",
+      "Agreement to the membership rules",
+    ],
+  },
 ];
 
 export default function JoinPage() {
@@ -47,9 +66,9 @@ export default function JoinPage() {
             How joining works.
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-relaxed text-ink-800">
-            Joining runs through a tracked pipeline rather than an open sign-up.
-            Your application moves through a small number of clear states, and
-            you can see which one it is in.
+            You create an account first, then apply from it. Your application
+            moves through a small number of clear states, and you can see which
+            one it is in from your account page.
           </p>
         </section>
 
@@ -90,22 +109,29 @@ export default function JoinPage() {
               what we ask for
             </p>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-ink-950 sm:text-3xl">
-              A short application.
+              An account, then the membership form.
             </h2>
-            <ul className="mt-6 space-y-3">
-              {ASKS.map((item) => (
-                <li
-                  key={item}
-                  className="flex gap-3 leading-relaxed text-ink-800"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="mt-3 h-px w-3 shrink-0 bg-accent"
-                  />
-                  {item}
-                </li>
-              ))}
-            </ul>
+            {ASKS.map((group) => (
+              <div key={group.stage} className="mt-8">
+                <h3 className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-950">
+                  {group.stage}
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {group.items.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-3 leading-relaxed text-ink-800"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="mt-3 h-px w-3 shrink-0 bg-accent"
+                      />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
 
           <aside className="md:col-span-6">
@@ -114,15 +140,25 @@ export default function JoinPage() {
                 ready?
               </p>
               <p className="mt-4 leading-relaxed text-ink-800">
-                Applications open at the semester kickoff, when activities and
-                expectations for the term are set.
+                Start by creating an account with your .edu email. Once you
+                confirm it, you can fill in the application. Signing up does not
+                make you a member.
               </p>
               <Link
-                href="/apply"
+                href="/signup"
                 className="mt-6 flex w-full items-center justify-center bg-ink-950 px-5 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-sheet transition-colors hover:bg-ink-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
               >
-                Apply to join
+                Create an account
               </Link>
+              <p className="mt-4 text-sm leading-relaxed text-ink-700">
+                Already have one?{" "}
+                <Link
+                  href="/apply"
+                  className="inline-flex min-h-11 items-center text-ink-950 underline underline-offset-4 hover:text-ink-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                >
+                  Continue to the application
+                </Link>
+              </p>
               <p className="mt-5 border-t border-rule pt-5 text-sm leading-relaxed text-ink-700">
                 Questions first?{" "}
                 <Link
