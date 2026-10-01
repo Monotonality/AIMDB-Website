@@ -133,9 +133,13 @@ export default function ApplicationForm({
         </div>
         <label className="mt-6 block">
           <span className={labelClass}>transaction id</span>
-          <span className="mt-1 block text-sm leading-relaxed text-ink-700">
-            Copy and paste the transaction ID or reference number from your
-            payment confirmation.
+          <span
+            id="transaction-id-hint"
+            className="mt-1 block text-sm leading-relaxed text-ink-700"
+          >
+            Write the ID from the transaction confirmation Zelle sends after
+            you pay. You can copy it from the confirmation email or the
+            confirmation screen in your banking app.
           </span>
           <input
             className={fieldClass}
@@ -145,6 +149,7 @@ export default function ApplicationForm({
             spellCheck={false}
             required
             maxLength={100}
+            aria-describedby="transaction-id-hint"
             defaultValue={values.transaction_id}
           />
         </label>
