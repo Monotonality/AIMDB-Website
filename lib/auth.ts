@@ -4,6 +4,7 @@ import type {
   AcademicYear,
   GraduationSemester,
 } from "@/lib/profile-details";
+import { supabaseConfig } from "@/lib/supabase/config";
 import { createClient } from "@/lib/supabase/server";
 
 export type Profile = {
@@ -36,6 +37,7 @@ export type Application = {
 };
 
 export const getAuthUser = cache(async () => {
+  if (!supabaseConfig) return null;
   const supabase = await createClient();
   const { data, error } = await supabase.auth.getClaims();
   if (error || !data?.claims) return null;
