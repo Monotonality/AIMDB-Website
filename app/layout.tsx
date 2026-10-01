@@ -12,10 +12,24 @@ const azeretMono = Azeret_Mono({
   subsets: ["latin"],
 });
 
+const title = "AIMDB | AI & In-Memory Database Club";
+const description =
+  "The AI & In-Memory Database Club at the Naveen Jindal School of Management, UT Dallas.";
+
 export const metadata: Metadata = {
-  title: "AIMDB | AI & In-Memory Database Club",
-  description:
-    "The AI & In-Memory Database Club at the Naveen Jindal School of Management, UT Dallas.",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    siteName: "AIMDB",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
