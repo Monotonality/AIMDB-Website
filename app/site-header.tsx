@@ -1,16 +1,19 @@
 import Link from "next/link";
 import Logo from "./logo";
-import { getAuthUser } from "@/lib/auth";
+import { getAuthUser, getProfile } from "@/lib/auth";
 
 const NAV = [
   { href: "/about", label: "About" },
   { href: "/join", label: "Join" },
+  { href: "/events", label: "Events" },
   { href: "/officers", label: "Officers" },
   { href: "/contact", label: "Contact" },
 ];
 
 export default async function SiteHeader() {
   const user = await getAuthUser();
+  const profile = user ? await getProfile() : null;
+  const isAdmin = profile?.role === "admin" && !profile.deactivated_at;
 
   return (
     <header className="border-b border-rule">
@@ -36,12 +39,22 @@ export default async function SiteHeader() {
             ))}
           </ul>
           {user ? (
-            <Link
-              href="/profile"
-              className="inline-flex min-h-11 shrink-0 items-center border border-ink-950 px-4 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-950 transition-colors hover:bg-ink-950 hover:text-sheet focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-            >
-              Account
-            </Link>
+            <div className="flex shrink-0 items-center gap-2">
+              {isAdmin ? (
+                <Link
+                  href="/admin"
+                  className="inline-flex min-h-11 items-center bg-ink-950 px-4 font-mono text-[11px] uppercase tracking-[0.16em] text-sheet transition-colors hover:bg-ink-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                >
+                  Admin
+                </Link>
+              ) : null}
+              <Link
+                href="/profile"
+                className="inline-flex min-h-11 items-center border border-ink-950 px-4 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-950 transition-colors hover:bg-ink-950 hover:text-sheet focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+              >
+                Account
+              </Link>
+            </div>
           ) : (
             <Link
               href="/login"

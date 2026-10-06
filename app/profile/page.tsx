@@ -100,14 +100,6 @@ export default async function ProfilePage() {
               Complete application
             </Link>
           ) : null}
-          {profile?.role === "admin" ? (
-            <Link
-              href="/admin"
-              className="inline-flex min-h-11 items-center bg-ink-950 px-5 font-mono text-[11px] uppercase tracking-[0.18em] text-sheet transition-colors hover:bg-ink-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-            >
-              Manage accounts
-            </Link>
-          ) : null}
           <form action={signOut}>
             <button
               type="submit"

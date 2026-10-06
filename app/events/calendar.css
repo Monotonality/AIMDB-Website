@@ -1,0 +1,83 @@
+/*
+ * FullCalendar stock palette, restated in the AIMDB token layer.
+ *
+ * #669DFF is accent ink, so it appears here only as a non-text wash behind
+ * today and the hovered cell. Event chips carry ink-800 with sheet labels, which
+ * keeps every label above 7:1 against its own chip.
+ */
+
+:root {
+  --fc-classic-background: var(--sheet);
+  --fc-classic-foreground: var(--color-ink-950);
+  --fc-classic-border: var(--color-rule);
+  --fc-classic-border-style: solid;
+  --fc-classic-strong: transparent;
+  --fc-classic-strong-border: var(--color-rule-strong);
+  --fc-classic-muted: transparent;
+  --fc-classic-muted-foreground: var(--color-ink-700);
+  --fc-classic-faint: transparent;
+  --fc-classic-faint-foreground: var(--color-ink-600);
+  --fc-classic-primary: var(--color-ink-950);
+  --fc-classic-primary-foreground: var(--sheet);
+  --fc-classic-today: rgb(102 157 255 / 22%);
+  --fc-classic-highlight: rgb(102 157 255 / 14%);
+  --fc-classic-now: var(--color-accent);
+  --fc-classic-button: transparent;
+  --fc-classic-button-border: var(--color-ink-800);
+  --fc-classic-button-foreground: var(--color-ink-950);
+  --fc-classic-button-outline: transparent;
+  /* The selected view tab keeps button-foreground text, so it needs a light fill. */
+  --fc-classic-button-strong: rgb(102 157 255 / 28%);
+  --fc-classic-button-strong-border: var(--color-ink-950);
+  --fc-classic-event: var(--color-ink-800);
+  --fc-classic-event-contrast: var(--sheet);
+  --fc-classic-ring-color: var(--color-accent);
+}
+
+/* The sheet uses square corners and hairlines; the stock theme rounds them. */
+
+.fc .fc-event,
+.fc .fc-daygrid-event {
+  border-radius: 2px;
+}
+
+.fc .fc-button {
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.fc .fc-col-header-cell-cushion,
+.fc .fc-list-day-text,
+.fc .fc-list-day-side-text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-700);
+  text-decoration: none;
+}
+
+.fc .fc-list-day-text:hover {
+  color: var(--color-ink-950);
+}
+
+.fc .fc-daygrid-event-harness a,
+.fc .fc-list-event a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.fc .fc-daygrid-event-harness a:hover,
+.fc .fc-list-event a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.fc .fc-toolbar-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}

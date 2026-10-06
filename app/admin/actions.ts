@@ -51,6 +51,7 @@ export async function updateAccount(
   if (result.error) return { error: result.error.message };
 
   revalidatePath("/admin");
+  revalidatePath("/admin/accounts");
   revalidatePath(`/admin/accounts/${target}`);
   return { error: null };
 }

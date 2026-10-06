@@ -143,7 +143,7 @@ export default async function AccountPage({
       <SiteHeader />
       <main className="mx-auto w-full max-w-4xl flex-1 px-6 py-16 md:py-24">
         <Link
-          href="/admin"
+          href="/admin/accounts"
           className="inline-flex min-h-11 items-center font-mono text-[11px] uppercase tracking-[0.18em] text-ink-700 underline-offset-4 hover:text-ink-950 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
         >
           ← All accounts
