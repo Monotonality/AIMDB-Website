@@ -7,6 +7,7 @@ import {
   readProfileDetails,
   type ProfileDetailsInput,
 } from "@/lib/profile-details";
+import { SITE_URL } from "@/lib/site-url";
 import { createClient } from "@/lib/supabase/server";
 
 export type AuthFormState = {
@@ -19,12 +20,7 @@ export type AuthFormState = {
 // Supabase only honours redirect targets on the project's Redirect URLs list.
 async function siteUrl() {
   const origin = (await headers()).get("origin");
-  if (origin) return origin;
-  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
-    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
-  }
-  return "http://localhost:3000";
+  return origin ?? SITE_URL;
 }
 
 function readCredentials(formData: FormData) {

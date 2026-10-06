@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo, Azeret_Mono } from "next/font/google";
+import { SITE_URL } from "@/lib/site-url";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -17,12 +18,7 @@ const description =
   "The AI & In-Memory Database Club at the Naveen Jindal School of Management, UT Dallas.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ??
-      (process.env.VERCEL_PROJECT_PRODUCTION_URL
-        ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-        : "http://localhost:3000"),
-  ),
+  metadataBase: new URL(SITE_URL),
   title,
   description,
   openGraph: {
